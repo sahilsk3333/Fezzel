@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1031075913535",
+    "firebase_url": "https://fezzle-59a83-default-rtdb.firebaseio.com",
+    "project_id": "fezzle-59a83",
+    "storage_bucket": "fezzle-59a83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031075913535:android:a22b2a8dff64f1f913fd8a",
+        "android_client_info": {
+          "package_name": "com.sahilpc.fezzle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031075913535-lb5kc5v2sj0s2himvek2fhj6a4r756mi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sahilpc.fezzle",
+            "certificate_hash": "33b4d0fa2693d5ee4ca93198f2ed8b546fc729cb"
+          }
+        },
+        {
+          "client_id": "1031075913535-mbngjcfqd74pun0mq30c3k5atfmnshno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqS_mcrBBIJKRuFRj3P0CmFYaJg-hIGCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031075913535-mbngjcfqd74pun0mq30c3k5atfmnshno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
