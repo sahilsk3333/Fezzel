@@ -121,9 +121,7 @@ public class ChatDetailActivity extends AppCompatActivity {
                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                            @Override
                            public void onSuccess(Void unused) {
-
                                binding.chatRecyclerView.smoothScrollToPosition(binding.chatRecyclerView.getAdapter().getItemCount() - 1);
-
                            }
                        });
                     }

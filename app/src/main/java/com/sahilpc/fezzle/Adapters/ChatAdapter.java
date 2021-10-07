@@ -1,5 +1,7 @@
 package com.sahilpc.fezzle.Adapters;
 
+import static java.lang.System.currentTimeMillis;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,8 +19,12 @@ import com.sahilpc.fezzle.Models.MessageModel;
 import com.sahilpc.fezzle.R;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class ChatAdapter extends RecyclerView.Adapter{
 
@@ -100,8 +106,17 @@ public class ChatAdapter extends RecyclerView.Adapter{
 
         if (holder.getClass() == SenderViewHolde.class){
             ((SenderViewHolde)holder).senderMsg.setText(messageModel.getMessage());
+
+            Date date = new Date(messageModel.getTimestamp());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+            ((SenderViewHolde)holder).senderTime.setText(simpleDateFormat.format(date));
+
         }else {
             ((ReciverViewHolder)holder).reciverMsg.setText(messageModel.getMessage());
+
+            Date date = new Date(messageModel.getTimestamp());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+            ((ReciverViewHolder)holder).reciverTime.setText(simpleDateFormat.format(date));
         }
 
     }

@@ -1,6 +1,8 @@
 package com.sahilpc.fezzle.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,6 +88,35 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
                 intent.putExtra("userName",users.getUserName());
                 context.startActivity(intent);
 
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+
+                new AlertDialog.Builder(context)
+                        .setTitle("Delete Chat")
+                        .setMessage("Are you sure you want to Clear this Chat")
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                String senderRoom = FirebaseAuth.getInstance().getUid()+users.getUserId();
+                                database.getReference().child("chats").child(senderRoom)
+                                        .setValue(null);
+
+                            }
+                        }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
+
+                return false;
             }
         });
 

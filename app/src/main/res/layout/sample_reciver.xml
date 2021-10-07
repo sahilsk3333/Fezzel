@@ -16,14 +16,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:maxWidth="270dp"
-        android:text="Message"
-        android:textIsSelectable="true"
         android:minWidth="50dp"
+        android:text="Message"
         android:textColor="@color/black"
+        android:textIsSelectable="true"
         app:layout_constraintBottom_toTopOf="@+id/reciverTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/reciverTime"

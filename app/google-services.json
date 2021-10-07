@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1031075913535-lb5kc5v2sj0s2himvek2fhj6a4r756mi.apps.googleusercontent.com",
+          "client_id": "1031075913535-or39pv36ii29e578k023k3hh7q9fnthn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.sahilpc.fezzle",
-            "certificate_hash": "33b4d0fa2693d5ee4ca93198f2ed8b546fc729cb"
+            "certificate_hash": "619bbc6865116831a5ba5be1031d561bc49e03b7"
           }
         },
         {

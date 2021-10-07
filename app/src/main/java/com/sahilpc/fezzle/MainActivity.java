@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Users> list = new ArrayList<>();
     FirebaseDatabase database;
 
+    UsersAdapter adapter = new UsersAdapter(list, MainActivity.this);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         binding.toolbar.setOverflowIcon(drawable);
 
 
-        UsersAdapter adapter = new UsersAdapter(list, MainActivity.this);
+
         binding.recyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -113,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
 
@@ -167,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
 
-
+    }
 }
