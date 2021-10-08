@@ -105,6 +105,11 @@ public class ChatDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String message = binding.etMessage.getText().toString();
+
+                if(message.trim().isEmpty()){
+                    return;
+                }
+
                 final MessageModel model = new MessageModel(senderId,message);
                 model.setTimestamp(new Date().getTime());
                 binding.etMessage.setText("");

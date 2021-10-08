@@ -98,15 +98,18 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
 
                 new AlertDialog.Builder(context)
                         .setTitle("Delete Chat")
-                        .setMessage("Are you sure you want to Clear this Chat")
+                        .setMessage("Are you sure you want to Delete this Chat")
                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                FirebaseAuth auth;
+                                auth = FirebaseAuth.getInstance();
 
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 String senderRoom = FirebaseAuth.getInstance().getUid()+users.getUserId();
                                 database.getReference().child("chats").child(senderRoom)
                                         .setValue(null);
+                                database.getReference().child("addedUsers").child(auth.getUid()).child(users.getUserId()).setValue(null);
 
                             }
                         }).setNegativeButton("no", new DialogInterface.OnClickListener() {

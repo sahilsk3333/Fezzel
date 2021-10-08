@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database;
 
     UsersAdapter adapter = new UsersAdapter(list, MainActivity.this);
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         binding.toolbar.setOverflowIcon(drawable);
 
 
-
         binding.recyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -73,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.addUserbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AddUserActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Set Profile Image on ToolBar
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         lottie.show();
-        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("addedUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                         list.clear();

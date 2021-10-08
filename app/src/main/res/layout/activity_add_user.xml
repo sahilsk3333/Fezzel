@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AddUserActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,42 +22,27 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_user"
-                app:civ_border_color="@color/white"
-                app:civ_border_width="1dp"
-                android:layout_margin="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/searchUsers"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/muli"
-                android:text="Chats"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableLeft="@drawable/search_bg"
+                android:drawableTint="@color/black"
+                android:drawablePadding="5dp"
+                android:hint="Search user by name..."
+                android:textColorHint="@color/black"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/addUserbtn"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_add_user"
-                android:layout_margin="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -65,14 +50,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvAddUser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.968" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
