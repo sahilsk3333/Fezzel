@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                                 lottie.dismiss();
                                 if (task.isSuccessful()) {
-                                    Users user = new Users(username.getEditText().getText().toString().trim(), usermail.getEditText().getText().toString().trim(), password.getEditText().getText().toString().trim());
+                                    Users user = new Users(username.getEditText().getText().toString().trim(), usermail.getEditText().getText().toString().trim(), password.getEditText().getText().toString().trim(),"online");
                                     String id = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(user);
 
@@ -86,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
 
                             }

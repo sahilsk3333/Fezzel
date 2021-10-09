@@ -136,12 +136,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
         ImageView image;
         TextView userName,lastMessage;
 
+
         public viewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
             image = itemView.findViewById(R.id.profileimg);
             userName = itemView.findViewById(R.id.userName);
             lastMessage = itemView.findViewById(R.id.lastMessage);
+
 
         }
 

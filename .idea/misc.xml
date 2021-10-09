@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/drawable/edittext_bg.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/drawable/ic_logout.xml" value="0.3223958333333333" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_add_user.xml" value="0.3432971014492754" />
-        <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_chat_detail.xml" value="0.25" />
+        <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_chat_detail.xml" value="0.33" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_main.xml" value="0.3432971014492754" />
+        <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_profile.xml" value="0.3625" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/activity_sign_in.xml" value="0.3625" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/sample_add_user.xml" value="0.3432971014492754" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/layout/sample_show_user.xml" value="0.3432971014492754" />
+        <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzel-A-Firebase-Chatting-App/app/src/main/res/menu/menu.xml" value="0.30625" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzle/app/src/main/res/layout/sample_reciver.xml" value="0.35703125" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzle/app/src/main/res/layout/sample_sender.xml" value="0.1578125" />
         <entry key="..\:/Users/sahil/AndroidStudioProjects/Fezzle/app/src/main/res/layout/sample_show_user.xml" value="0.371875" />

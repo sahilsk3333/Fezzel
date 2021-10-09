@@ -176,6 +176,7 @@ public class SignInActivity extends AppCompatActivity {
                             users.setUserName(user.getDisplayName());
                             users.setProfilepic(user.getPhotoUrl().toString());
                             users.setMail(user.getEmail());
+                            users.setStatus("online");
 
                             database.getReference().child("Users").child(user.getUid()).setValue(users);
 

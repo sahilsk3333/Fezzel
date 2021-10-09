@@ -2,7 +2,8 @@ package com.sahilpc.fezzle.Models;
 
 public class Users {
 
-    String profilepic ,userName,mail,password,userId,lastMessage,about;
+    String profilepic ,userName,mail,password,userId,lastMessage,about,status;
+
 
 
     public Users(String profilepic, String userName, String mail, String password, String userId, String lastMessage, String about) {
@@ -15,15 +16,24 @@ public class Users {
         this.about = about;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Users() {
     }
 
     //SignUp Constructor
-    public Users(String userName, String mail, String password) {
+    public Users(String userName, String mail, String password ,String status) {
 
         this.userName = userName;
         this.mail = mail;
         this.password = password;
+        this.status = status;
     }
 
 
