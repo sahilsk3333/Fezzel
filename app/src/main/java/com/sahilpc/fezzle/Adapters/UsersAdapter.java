@@ -56,6 +56,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.ic_user).into(holder.image);
         holder.userName.setText(users.getUserName());
 
+        if (users.getStatus().equals("online")){
+            holder.imgOnline.setVisibility(View.VISIBLE);
+            holder.imgOffline.setVisibility(View.GONE);
+        } else {
+            holder.imgOnline.setVisibility(View.GONE);
+            holder.imgOffline.setVisibility(View.VISIBLE);
+        }
+
         FirebaseDatabase.getInstance().getReference().child("chats")
                 .child(FirebaseAuth.getInstance().getUid()+users.getUserId())
                 .orderByChild("timestamp")
@@ -111,6 +119,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
                                         .setValue(null);
                                 database.getReference().child("addedUsers").child(auth.getUid()).child(users.getUserId()).setValue(null);
 
+                                list.remove(users);
+                                notifyItemRemoved(position);
+                                notifyItemRangeChanged(position,list.size());
+
                             }
                         }).setNegativeButton("no", new DialogInterface.OnClickListener() {
                     @Override
@@ -133,8 +145,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
 
     public class viewHolder extends RecyclerView.ViewHolder{
 
-        ImageView image;
+        ImageView image,imgOnline,imgOffline;
         TextView userName,lastMessage;
+
 
 
         public viewHolder(@NonNull @NotNull View itemView) {
@@ -143,6 +156,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder>{
             image = itemView.findViewById(R.id.profileimg);
             userName = itemView.findViewById(R.id.userName);
             lastMessage = itemView.findViewById(R.id.lastMessage);
+
+            imgOnline = itemView.findViewById(R.id.imgOnline);
+            imgOffline = itemView.findViewById(R.id.imgOffline);
 
 
         }

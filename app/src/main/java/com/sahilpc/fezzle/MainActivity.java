@@ -33,15 +33,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseAuth auth;
-    ArrayList<Users> list = new ArrayList<>();
     FirebaseDatabase database;
     FirebaseUser firebaseUser;
 
+    private List<String> freindsList = new ArrayList<>();
+    ArrayList<Users> list = new ArrayList<>();
     UsersAdapter adapter = new UsersAdapter(list, MainActivity.this);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,20 +102,25 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-
         lottie.show();
-        database.getReference().child("addedUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+
+        checkFreinds();
+        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
                     Users users = dataSnapshot.getValue(Users.class);
                     users.setUserId(dataSnapshot.getKey());
                     if (!users.getUserId().equals(FirebaseAuth.getInstance().getUid())){
-                        list.add(users);
+
+                        if (freindsList.contains(users.getUserId())){
+                            list.add(users);
+                        }
 
                     }
-
                 }
                 adapter.notifyDataSetChanged();lottie.dismiss();
 
@@ -126,6 +133,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void checkFreinds() {
+        database.getReference().child("addedUsers").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    freindsList.add(dataSnapshot.getValue().toString());
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+            }
+        });
 
     }
 
@@ -189,16 +212,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         adapter.notifyDataSetChanged();
         status("online");
 
     }
-
 
     @Override
     protected void onPause() {
         super.onPause();
         status("offline");
     }
+
+
 }

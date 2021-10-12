@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -9,13 +10,52 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileimg"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="5dp"
-            android:padding="7dp"
-            android:src="@drawable/ic_user" />
+            android:layout_height="70dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileimg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:padding="7dp"
+                android:src="@drawable/ic_user"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgOnline"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone"
+                app:civ_border_color="#05df29"
+                app:civ_border_width="10dp"
+                android:layout_margin="9dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profileimg"
+                app:layout_constraintEnd_toEndOf="@+id/profileimg" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgOffline"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone"
+                app:civ_border_color="#bfbfbf"
+                app:civ_border_width="10dp"
+                android:layout_margin="9dp"
+                app:layout_constraintBottom_toBottomOf="@+id/profileimg"
+                app:layout_constraintEnd_toEndOf="@+id/profileimg" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

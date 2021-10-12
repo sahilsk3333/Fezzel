@@ -61,7 +61,7 @@ public class AddUserAdapter extends RecyclerView.Adapter<AddUserAdapter.viewHold
                 mDatabase = FirebaseDatabase.getInstance().getReference();
                 auth = FirebaseAuth.getInstance();
 
-                mDatabase.child("addedUsers").child(auth.getUid()).child(users.getUserId()).setValue(users);
+                mDatabase.child("addedUsers").child(auth.getUid()).child(users.getUserId()).setValue(users.getUserId());
 
                 Toast.makeText(view.getContext(), users.getUserName() + " Added", Toast.LENGTH_SHORT).show();
 
